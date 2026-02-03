@@ -45,7 +45,7 @@ RUN npm run build
 # Finally, build the production image with minimal footprint
 FROM base AS production
 
-ENV PORT="8080"
+ENV PORT="80"
 ENV NODE_ENV="production"
 # BONUS: This should be injected at runtime from a secrets manager
 # We will review the solution next class
@@ -60,5 +60,5 @@ COPY --from=build /cst8918-a01/public /cst8918-a01/public
 COPY --from=build /cst8918-a01/package.json /cst8918-a01/package.json
 
 RUN chown -R student:student /cst8918-a01
-USER student
+# USER student
 CMD [ "/bin/sh", "-c", "./node_modules/.bin/remix-serve ./build/index.js" ]
