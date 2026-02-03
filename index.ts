@@ -48,7 +48,7 @@ const registryCredentials = containerregistry
 const image = new dockerBuild.Image(`${prefixName}-image`, {
   tags: [pulumi.interpolate`${registry.loginServer}/${imageName}:${imageTag}`],
   context: { location: appPath },
-  dockerfile: { location: `${appPath}/Dockerfile` },
+  dockerfile: { location: `${appPath}/infrastructure/Dockerfile` },
   target: 'production',
   platforms: ['linux/amd64', 'linux/arm64'],
   push: true,
