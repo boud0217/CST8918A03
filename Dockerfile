@@ -43,7 +43,7 @@ ADD . .
 RUN npm run build
 
 # Finally, build the production image with minimal footprint
-FROM base
+FROM base AS production
 
 ENV PORT="8080"
 ENV NODE_ENV="production"

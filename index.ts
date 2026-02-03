@@ -47,7 +47,7 @@ const registryCredentials = containerregistry
 // Define the container image for the service.
 const image = new dockerBuild.Image(`${prefixName}-image`, {
   tags: [pulumi.interpolate`${registry.loginServer}/${imageName}:${imageTag}`],
-  context: { location: appPath },
+  context: { location: "C:\\Git\\CST8918-W25-A01-WEATHER" },
   dockerfile: { location: `${appPath}/infrastructure/Dockerfile` },
   target: 'production',
   platforms: ['linux/amd64', 'linux/arm64'],
