@@ -22,6 +22,7 @@ const resourceGroup = new resources.ResourceGroup(`${prefixName}-rg`)
 // Create the container registry.
 const registry = new containerregistry.Registry(`${prefixName}ACR`, {
   resourceGroupName: resourceGroup.name,
+  registryName: prefixName.replace(/-/g, '') + 'ACR',
   adminUserEnabled: true,
   sku: {
     name: containerregistry.SkuName.Basic,
